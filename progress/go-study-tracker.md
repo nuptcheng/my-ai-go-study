@@ -1,7 +1,7 @@
 # Go 学习进度追踪
 
 ## 概览
-- 总问题数：8
+- 总问题数：9
 - 总学习天数：1
 - 最后更新：2026-02-10
 
@@ -44,3 +44,5 @@
   - 记录位置：sessions/2026-02-10/session-notes.md#问题7-好的那就用方案b我该怎么安装然后验证？
 - 问题8-Go的依赖包怎么管理，比如Node.js有npm install和node_modules，Go是怎么管理的？（2026-02-10）
   - 记录位置：sessions/2026-02-10/session-notes.md#问题8-go的依赖包怎么管理比如nodejs有npm-install和node_modulesgo是怎么管理的
+- 问题9-常用中间件与计算库推荐 (Redis/InfluxDB/TDengine/MySQL/Expr)（2026-02-10）
+  - 记录位置：sessions/2026-02-10/session-notes.md#第九部分常用中间件与计算库推荐-redisinfluxdbtdenginemysqlexpr

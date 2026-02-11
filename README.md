@@ -19,7 +19,7 @@
 
 ## 学习进度
 
-- 总问题数：8
+- 总问题数：9
 - 总学习天数：1
 - 最后更新：2026-02-10
 
@@ -46,6 +46,7 @@
 - [brew安装后能不能切Go版本，类似nvm list这样？](sessions/2026-02-10/session-notes.md#问题6-brew安装后能不能切go版本类似nvm-list这样？)
 - [官方多版本方案 (Scheme B) 安装与验证指南](sessions/2026-02-10/session-notes.md#问题7-好的那就用方案b我该怎么安装然后验证？)
 - [Go依赖管理 (Go Modules) 详解与 Node.js 对比](sessions/2026-02-10/session-notes.md#问题8-go的依赖包怎么管理比如nodejs有npm-install和node_modulesgo是怎么管理的)
+- [常用中间件与计算库推荐 (Redis/InfluxDB/TDengine/MySQL/Expr)](sessions/2026-02-10/session-notes.md#第九部分常用中间件与计算库推荐-redisinfluxdbtdenginemysqlexpr)
 
 ---
 
@@ -59,6 +60,8 @@
 - [那么3种方式建议用哪种安装呢？（brew/pkg/tarball）](sessions/2026-02-10/session-notes.md#问题5-那么3种方式建议用哪种安装呢？brewpkgtarball)
 - [brew安装后能不能切Go版本，类似nvm list这样？](sessions/2026-02-10/session-notes.md#问题6-brew安装后能不能切go版本类似nvm-list这样？)
 - [官方多版本方案 (Scheme B) 安装与验证指南](sessions/2026-02-10/session-notes.md#问题7-好的那就用方案b我该怎么安装然后验证？)
+- [Go依赖管理 (Go Modules) 详解与 Node.js 对比](sessions/2026-02-10/session-notes.md#问题8-go的依赖包怎么管理比如nodejs有npm-install和node_modulesgo是怎么管理的)
+- [常用中间件与计算库推荐 (Redis/InfluxDB/TDengine/MySQL/Expr)](sessions/2026-02-10/session-notes.md#第九部分常用中间件与计算库推荐-redisinfluxdbtdenginemysqlexpr)
 
 ---
 

@@ -1,3 +1,9 @@
+<!--
+ * @Author: BecomeBamboo
+ * @Date: 2026-02-11 13:58:17
+ * @LastEditTime: 2026-02-11 14:27:23
+ * @Description: 
+-->
 # Go Dependency Management Demo
 
 这个示例演示了 Go Modules 的基本用法。
