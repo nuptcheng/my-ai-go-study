@@ -312,3 +312,52 @@ go1.20.12 download
 如果你运行 `go1.20.12` 时提示找不到命令，说明 `~/go/bin` 不在你的 PATH 环境变量里。
 **解决方法**：
 把 `export PATH=$PATH:$(go env GOPATH)/bin` 加到你的 `~/.zshrc` 文件末尾，然后 `source ~/.zshrc`。
+
+---
+
+## 第八部分：Go 依赖管理 (Go Modules vs NPM)
+
+### 学生提出的问题
+- 我现在go程序跑起来了，我想请问下Go的依赖包怎么管理，比如Node.js有npm install和node_modules，Go是怎么管理的，请给出完整示例
+
+### 讲解内容
+- **核心概念 (Go Modules)**
+  - Go 1.11+ 推出的官方依赖管理标准。
+  - **不需要**像 Node.js 那样在每个项目里拖一个巨大的 `node_modules` 文件夹。
+  - 依赖包源码下载到**全局缓存** (`$GOPATH/pkg/mod`)，多个项目共享，节省磁盘空间。
+
+- **关键文件与命令对比 (Node.js vs Go)**
+
+| 作用 | Node.js | Go (Go Modules) |
+| :--- | :--- | :--- |
+| **定义依赖** | `package.json` | **`go.mod`** (定义模块名、Go版本、直接依赖) |
+| **锁定版本** | `package-lock.json` | **`go.sum`** (记录哈希校验值，保证安全性) |
+| **安装依赖** | `npm install <pkg>` | **`go get <pkg>`** (或者直接在代码 import 后运行 `go mod tidy`) |
+| **整理依赖** | `npm prune` | **`go mod tidy`** (自动分析 import，添加缺失的，移除不用的) |
+| **依赖位置** | `./node_modules` | **`$GOPATH/pkg/mod`** (全局统一缓存) |
+
+- **标准工作流**
+  1. **初始化**：`go mod init <模块名>` -> 生成 `go.mod`
+  2. **写代码**：直接在 `.go` 文件里 `import "github.com/gin-gonic/gin"`
+  3. **自动整理**：运行 `go mod tidy` -> 自动下载包、更新 `go.mod`、生成 `go.sum`
+  4. **运行**：`go run .`
+
+### 完整示例
+- 我为你创建了一个完整的演示项目：[dependency-demo](file:///Users/becomebamboo/source/my-ai-study/my-ai-go-study/code-examples/dependency-demo)
+- **代码文件**：[main.go](file:///Users/becomebamboo/source/my-ai-study/my-ai-go-study/code-examples/dependency-demo/main.go) (引入了 google/uuid 库)
+- **操作步骤**：
+  ```bash
+  cd code-examples/dependency-demo
+  # 1. 观察当前的 go.mod (只有模块名)
+  cat go.mod
+  
+  # 2. 自动下载依赖 (这是最重要的一步！)
+  go mod tidy
+  
+  # 3. 观察变化
+  cat go.mod # 发现多了 require github.com/google/uuid ...
+  ls go.sum  # 发现生成了校验文件
+  
+  # 4. 运行
+  go run main.go
+  ```
