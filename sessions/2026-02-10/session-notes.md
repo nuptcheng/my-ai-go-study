@@ -1,4 +1,6 @@
 
+[⬅️ 返回主页](../../README.md)
+
 ## 第九部分：常用中间件与计算库推荐 (Redis/InfluxDB/TDengine/MySQL/Expr)
 
 ### 学生提出的问题
@@ -37,7 +39,7 @@ Go 语言原生**不支持**三元运算符 (`cond ? a : b`)，但业务逻辑�
   - **性能**: 会编译成字节码运行，速度极快。
 
 ### 代码示例
-我为你准备了一个演示项目：[libs-demo](file:///Users/becomebamboo/source/my-ai-study/my-ai-go-study/code-examples/libs-demo)，重点展示了如何用 `expr` 处理你提到的“加减乘除与三元逻辑”。
+我为你准备了一个演示项目：[libs-demo](../../code-examples/libs-demo)，重点展示了如何用 `expr` 处理你提到的“加减乘除与三元逻辑”。
 
 **核心代码预览 (main.go)**:
 ```go

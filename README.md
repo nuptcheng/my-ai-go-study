@@ -1,7 +1,7 @@
 <!--
  * @Author: BecomeBamboo
  * @Date: 2026-01-23 14:09:45
- * @LastEditTime: 2026-02-10 16:21:06
+ * @LastEditTime: 2026-02-13 11:24:48
  * @Description: 
 -->
 # Go学习知识库
@@ -19,9 +19,9 @@
 
 ## 学习进度
 
-- 总问题数：9
-- 总学习天数：1
-- 最后更新：2026-02-10
+- 总问题数：16
+- 总学习天数：2
+- 最后更新：2026-02-12
 
 ---
 
@@ -29,12 +29,27 @@
 
 ### 语言基础
 - [Go 类型一共有几种？说明理由](sessions/2026-02-10/session-notes.md#问题1-go-类型一共有几种？说明理由)
+- [Go语言的短变量声明是什么意思？是只能在函数内部声明是嘛，函数外如何处理？](sessions/2026-02-12/session-notes.md#第一部分go-短变量声明)
+- [Go里面定义JSON对象是()而不是{}？，定义后如何获取对象属性呢？](sessions/2026-02-12/session-notes.md#第二部分go-对象定义-struct)
+- [Go里面{不能单独一行是吗？（语法规则与分号插入机制）](sessions/2026-02-12/session-notes.md#第三部分go-语法规则-左大括号)
+- [Go语言中的25个关键字或保留字详解与分类记忆](sessions/2026-02-12/session-notes.md#第四部分go-关键字-keywords)
+- [Go常量定义时需要显式指定类型吗？（无类型常量与有类型常量的区别）](sessions/2026-02-12/session-notes.md#第五部分go-常量定义与类型推断机制)
 
 ### 并发模型
 - [Go协程与Java线程的区别（优劣势、场景、资源差异对比表格）](sessions/2026-02-10/session-notes.md#问题2-go协程与java线程的区别优劣势场景资源差异对比表格)
 
 ### 接口与泛型
-- 待记录
+- [Go 接口定义、隐式实现与多态使用场景](sessions/2026-02-12/session-notes.md#第六部分go-接口定义与使用场景)
+- [Go 数据类型全解：基本类型与复合类型分类详解](sessions/2026-02-12/session-notes.md#第七部分go-数据类型全解)
+- [Go 切片 (Slice) 详解：底层结构、扩容机制与常见陷阱](sessions/2026-02-12/session-notes.md#第八部分go-切片-slice-详解与扩容机制)
+- [Go 语言编码规范与标准项目结构指南 (Naming & Layout)](sessions/2026-02-12/session-notes.md#第九部分go-语言编码规范与标准项目结构)
+- [Go 匿名函数与闭包 (Closure)：应用场景与循环变量捕获](sessions/2026-02-12/session-notes.md#第十部分go-匿名函数与闭包-closure)
+- [Go 数组 (Array) 全解析](sessions/2026-02-13/session-notes.md#第十一部分go-数组-array-全解析)
+- [Go 指针 (Pointer) 详解：符号、结构体访问、传值性能对比与二级指针](sessions/2026-02-13/session-notes.md#第十二部分go-指针-pointer-详解)
+  - **重要**: 字段可见性规则 (Public/Private) [示例](code-examples/visibility-demo/main.go)
+- [Go 包管理与工程实践：包名/文件名关系、JSON 解析与 Struct Tag](sessions/2026-02-13/session-notes.md#第十五部分包名-package-与文件名-filename)
+  - **实战**: 全局缓存/配置加载模式 (Global Cache Pattern) [示例](code-examples/global-cache-demo/main.go)
+  - **规范**: 结构体命名 (DTO) 与 JSON Tag [代码](code-examples/global-cache-demo/pkg/formulas/store.go)
 
 ### 标准库
 - 待记录
@@ -47,11 +62,34 @@
 - [官方多版本方案 (Scheme B) 安装与验证指南](sessions/2026-02-10/session-notes.md#问题7-好的那就用方案b我该怎么安装然后验证？)
 - [Go依赖管理 (Go Modules) 详解与 Node.js 对比](sessions/2026-02-10/session-notes.md#问题8-go的依赖包怎么管理比如nodejs有npm-install和node_modulesgo是怎么管理的)
 - [常用中间件与计算库推荐 (Redis/InfluxDB/TDengine/MySQL/Expr)](sessions/2026-02-10/session-notes.md#第九部分常用中间件与计算库推荐-redisinfluxdbtdenginemysqlexpr)
+- [Go 语言编码规范与标准项目结构指南 (Naming & Layout)](sessions/2026-02-12/session-notes.md#第九部分go-语言编码规范与标准项目结构)
+
 
 ---
 
-## 📅 时间线索引
- 
+## 学习记录 (Timeline)
+
+### 2026-02-13
+- **今日重点**: 数组、指针、可见性规则、包管理、Struct Tag 与全局缓存模式。
+- **文档**: [session-notes.md](sessions/2026-02-13/session-notes.md)
+- **演示代码**:
+  - [array-demo](code-examples/array-demo)
+  - [pointer-demo](code-examples/pointer-demo)
+  - [visibility-demo](code-examples/visibility-demo)
+  - [global-cache-demo](code-examples/global-cache-demo)
+
+### 2026-02-12
+- [Go语言的短变量声明是什么意思？是只能在函数内部声明是嘛，函数外如何处理？](sessions/2026-02-12/session-notes.md#第一部分go-短变量声明)
+- [Go里面定义JSON对象是()而不是{}？，定义后如何获取对象属性呢？](sessions/2026-02-12/session-notes.md#第二部分go-对象定义-struct)
+- [Go里面{不能单独一行是吗？（语法规则与分号插入机制）](sessions/2026-02-12/session-notes.md#第三部分go-语法规则-左大括号)
+- [Go语言中的25个关键字或保留字详解与分类记忆](sessions/2026-02-12/session-notes.md#第四部分go-关键字-keywords)
+- [Go常量定义时需要显式指定类型吗？（无类型常量与有类型常量的区别）](sessions/2026-02-12/session-notes.md#第五部分go-常量定义与类型推断机制)
+- [Go 接口定义、隐式实现与多态使用场景](sessions/2026-02-12/session-notes.md#第六部分go-接口定义与使用场景)
+- [Go 数据类型全解：基本类型与复合类型分类详解](sessions/2026-02-12/session-notes.md#第七部分go-数据类型全解)
+- [Go 切片 (Slice) 详解：底层结构、扩容机制与常见陷阱](sessions/2026-02-12/session-notes.md#第八部分go-切片-slice-详解与扩容机制)
+- [Go 匿名函数与闭包 (Closure)：应用场景与循环变量捕获](sessions/2026-02-12/session-notes.md#第十部分go-匿名函数与闭包-closure)
+
+
 ### 2026-02-10
 - [Go 类型一共有几种？说明理由](sessions/2026-02-10/session-notes.md#问题1-go-类型一共有几种？说明理由)
 - [Go协程与Java线程的区别（优劣势、场景、资源差异对比表格）](sessions/2026-02-10/session-notes.md#问题2-go协程与java线程的区别优劣势场景资源差异对比表格)
@@ -70,6 +108,7 @@
 - [学习进度追踪](progress/go-study-tracker.md) - 查看已掌握的主题和知识盲点
 - [所有学习记录](sessions/) - 按日期查看详细的学习记录
 - [代码示例](code-examples/) - 学习过程中的代码示例
+- [项目文档](docs/) - 独立的 Go 语言规范与技术文档
 - [系统配置](.trae/project_rules.md) - 查看学习系统的配置说明
  - 示例：类型初始化与使用分离 [types-demo](file:///Users/becomebamboo/source/my-ai-study/my-ai-go-study/code-examples/types-demo)
  - 示例：工程目录结构与交叉编译 [project-layout-demo](file:///Users/becomebamboo/source/my-ai-study/my-ai-go-study/code-examples/project-layout-demo)

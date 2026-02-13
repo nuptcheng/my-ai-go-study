@@ -1,19 +1,46 @@
+[⬅️ 返回主页](../README.md)
+
 # Go 学习进度追踪
 
 ## 概览
-- 总问题数：9
-- 总学习天数：1
-- 最后更新：2026-02-10
+- 总问题数：21
+- 总学习天数：2
+- 最后更新：2026-02-12
 
 ## 掌握主题
 - 类型分类与数量（按规范分为 3 基本 + 8 复合）
+- 基本类型详解（整型、浮点、复数、布尔、字符串、rune/byte）
 - 复合类型零值与引用性质（slice/map/chan/func/pointer/interface）
+- 切片底层原理（ptr/len/cap）与扩容机制（Go 1.18+ 策略）
+- 切片共享内存副作用与 Deep Copy
+- Go 命名规范（Snake Case 文件名、Camel Case 变量）
+- Standard Go Project Layout（cmd/internal/pkg 目录职能）
+- 匿名函数定义与立即执行
+- 闭包机制与状态保持（Counter 示例）
+- 闭包陷阱：循环变量捕获（Go 1.22 变更）
+- 数组 (Array) 特性：定长、值类型、多维支持
+- 数组 vs 切片的选择标准
+- 指针 (Pointer) 核心：& (取地址) 与 * (解引用)
+- 结构体指针的自动解引用（Dot Operator 语法糖）
+- 值传递 vs 指针传递的性能与语义差异
+- Go 访问权限控制（Visibility）：首字母大小写规则 (Public/Private)
+- 包名与文件名的关系 (Package vs File)
+- 同包跨文件访问与命名冲突规则 (Name Conflict)
+- Struct Tag 用法 (`json:"name"`) 与命名规范 (DTO 后缀)
+- 标准库 `encoding/json` 的序列化与反序列化
+- 全局配置/缓存模式 (Global Cache Pattern) 实现
 - 数组 vs 切片的核心差异（长度为类型一部分；切片为描述符）
 - map 的基本用法、存在性判断、键的可比性约束
 - 并发模型差异（Go 协程 vs Java 平台线程/虚拟线程）
 - Goroutine 轻量级特性（2KB 栈、M:N 调度、低切换成本）
 - Go 工程化基础（SDK、Go Modules、交叉编译、标准目录结构）
 - Go 测试与调试工具（Delve, go test, gotests）
+- 变量声明规则（短变量声明 := 限制与包级 var 声明）
+- struct 与 var 块的区别及属性访问
+- Go 语法规则（左花括号 { 换行限制与自动分号插入）
+- Go 25 个关键字（defer/select/fallthrough 等机制）
+- Go 常量类型推断（无类型常量 Untyped Constant 的灵活性）
+- Go 接口机制（隐式实现、多态、空接口）
 
 ## 知识盲点
 - 切片扩容规则、append 的复制行为与性能影响
@@ -29,20 +56,38 @@
 
 ## 索引
 - 问题1-Go 类型一共有几种？说明理由（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#问题1-go-类型一共有几种？说明理由
+  - 记录位置：../sessions/2026-02-10/session-notes.md#问题1-go-类型一共有几种？说明理由
 - 问题2-Go协程与Java线程的区别（优劣势、场景、资源差异对比表格）（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#问题2-go协程与java线程的区别优劣势场景资源差异对比表格
+  - 记录位置：../sessions/2026-02-10/session-notes.md#问题2-go协程与java线程的区别优劣势场景资源差异对比表格
 - 问题3-Go开发环境搭建与工程化（SDK版本、依赖管理、交叉编译、调试测试、目录结构）（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#问题3-go开发环境搭建与工程化sdk版本依赖管理交叉编译调试测试目录结构
+  - 记录位置：../sessions/2026-02-10/session-notes.md#问题3-go开发环境搭建与工程化sdk版本依赖管理交叉编译调试测试目录结构
 - 问题4-Go安装后需要在代码里指定路径还是配置全局变量？（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#问题4-go安装后需要在代码里指定路径还是配置全局变量？
+  - 记录位置：../sessions/2026-02-10/session-notes.md#问题4-go安装后需要在代码里指定路径还是配置全局变量？
 - 问题5-那么3种方式建议用哪种安装呢？（brew/pkg/tarball）（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#问题5-那么3种方式建议用哪种安装呢？brewpkgtarball
+  - 记录位置：../sessions/2026-02-10/session-notes.md#问题5-那么3种方式建议用哪种安装呢？brewpkgtarball
 - 问题6-brew安装后能不能切Go版本，类似nvm list这样？（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#问题6-brew安装后能不能切go版本类似nvm-list这样？
+  - 记录位置：../sessions/2026-02-10/session-notes.md#问题6-brew安装后能不能切go版本类似nvm-list这样？
 - 问题7-好的，那就用方案B，我该怎么安装然后验证？（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#问题7-好的那就用方案b我该怎么安装然后验证？
+  - 记录位置：../sessions/2026-02-10/session-notes.md#问题7-好的那就用方案b我该怎么安装然后验证？
 - 问题8-Go的依赖包怎么管理，比如Node.js有npm install和node_modules，Go是怎么管理的？（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#问题8-go的依赖包怎么管理比如nodejs有npm-install和node_modulesgo是怎么管理的
+  - 记录位置：../sessions/2026-02-10/session-notes.md#问题8-go的依赖包怎么管理比如nodejs有npm-install和node_modulesgo是怎么管理的
 - 问题9-常用中间件与计算库推荐 (Redis/InfluxDB/TDengine/MySQL/Expr)（2026-02-10）
-  - 记录位置：sessions/2026-02-10/session-notes.md#第九部分常用中间件与计算库推荐-redisinfluxdbtdenginemysqlexpr
+  - 记录位置：../sessions/2026-02-10/session-notes.md#第九部分常用中间件与计算库推荐-redisinfluxdbtdenginemysqlexpr
+- 问题10-Go语言的短变量声明是什么意思？是只能在函数内部声明是嘛，函数外如何处理？（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#问题10-go语言的短变量声明是什么意思是只能在函数内部声明是嘛函数外如何处理
+- 问题11-Go里面定义JSON对象是()而不是{}？，定义后如何获取对象属性呢？（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#第二部分go-中的对象定义与属性访问
+- 问题12-Go里面{不能单独一行是吗？（语法规则与分号插入机制）（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#第三部分go-语法规则---左花括号--的位置
+- 问题13-Go语言中的25个关键字或保留字请给出说明及代码示例（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#第四部分go-语言-25-个关键字详解
+- 问题14-Go常量定义时需要显式指定类型吗？（无类型常量与有类型常量的区别）（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#第五部分go-常量定义与类型推断机制
+- 问题15-Go 接口定义、隐式实现与多态使用场景（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#第六部分go-接口定义与使用场景
+- 问题16-Go 数据类型全解：基本类型与复合类型分类详解（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#第七部分go-数据类型全解
+- 问题17-Go 切片 (Slice) 详解：底层结构、扩容机制与常见陷阱（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#第八部分go-切片-slice-详解与扩容机制
+- 问题18-Go 语言编码规范与标准项目结构指南 (Naming & Layout)（2026-02-12）
+  - 记录位置：../sessions/2026-02-12/session-notes.md#第九部分go-语言编码规范与标准项目结构
