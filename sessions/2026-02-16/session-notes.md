@@ -105,3 +105,120 @@ for i := range nums {
 }
 ```
 
+## 第二部分：Go map 全解析：初始化、遍历、删除与 Set 模拟
+
+### 1. map 初始化与容量
+
+- 使用字面量直接初始化：
+
+```go
+scores := map[string]int{
+    "Alice": 90,
+    "Bob":   85,
+}
+```
+
+- 使用 make 创建空 map：
+
+```go
+ages := make(map[string]int)
+```
+
+- 使用 make 预估容量（性能优化）：
+
+```go
+cache := make(map[string]int, 1000)
+```
+
+- 仅声明不初始化是 nil map，只能读不能写：
+
+```go
+var m map[string]int
+```
+
+### 2. 不同键值类型的 map
+
+Go 的 map 类型为 `map[KeyType]ValueType`：
+
+- `map[string]int`
+- `map[string]string`
+- `map[string]map[string]string`
+- `map[string]RealtimeData`
+
+键类型必须是可比较的（可以用 `==` 判断），值类型可以是任意类型。
+
+### 3. 写入、读取与存在性判断
+
+```go
+userAges := make(map[string]int)
+userAges["Tom"] = 18
+userAges["Jerry"] = 20
+
+age := userAges["Tom"]
+
+ageZero := userAges["Unknown"]
+
+if v, ok := userAges["Unknown"]; ok {
+    fmt.Println("存在", v)
+} else {
+    fmt.Println("不存在")
+}
+```
+
+直接读取不存在的 key 会返回值类型的零值，需要通过第二个返回值 ok 区分“不存在”与“值为零”。
+
+### 4. 长度与遍历
+
+```go
+fmt.Println(len(userAges))
+
+for name, age := range userAges {
+    fmt.Println(name, age)
+}
+```
+
+map 的遍历顺序不保证，每次运行可能不同。
+
+### 5. 删除元素
+
+```go
+delete(userAges, "Tom")
+delete(userAges, "NotExist")
+```
+
+删除不存在的 key 不会报错。
+
+### 6. 使用 map 实现 Set 与实时数据缓存
+
+用 `map[T]struct{}` 实现集合：
+
+```go
+set := make(map[string]struct{})
+set["A"] = struct{}{}
+set["B"] = struct{}{}
+
+if _, ok := set["A"]; ok {
+}
+
+delete(set, "B")
+```
+
+用 map 保存实时数据，key 唯一：
+
+```go
+type RealtimeData struct {
+    Value float64
+    Ts    time.Time
+}
+
+realtime := make(map[string]RealtimeData)
+realtime["device-001"] = RealtimeData{Value: 10.1, Ts: time.Now()}
+realtime["device-001"] = RealtimeData{Value: 11.5, Ts: time.Now()}
+```
+
+同一个 key 反复写入只是覆盖旧值，非常适合“最新数据缓存”的场景。
+
+### 代码示例
+
+- [map-demo](../../code-examples/map-demo/main.go): 演示 map 初始化、类型组合、写入读取、长度遍历、删除与 Set 模拟。
+

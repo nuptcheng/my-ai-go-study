@@ -1,7 +1,7 @@
 <!--
  * @Author: BecomeBamboo
  * @Date: 2026-01-23 14:09:45
- * @LastEditTime: 2026-02-16 20:47:59
+ * @LastEditTime: 2026-02-16 23:18:56
  * @Description: 
 -->
 # Go学习知识库
@@ -35,6 +35,7 @@
 - [Go语言中的25个关键字或保留字详解与分类记忆](sessions/2026-02-12/session-notes.md#第四部分go-关键字-keywords)
 - [Go常量定义时需要显式指定类型吗？（无类型常量与有类型常量的区别）](sessions/2026-02-12/session-notes.md#第五部分go-常量定义与类型推断机制)
 - [Go 的 for 语句与 range 用法：三种形态与遍历细节](sessions/2026-02-16/session-notes.md#第一部分go-for-语句与-range-用法)
+- [Go map 全解析：初始化、遍历、删除与 Set 模拟](sessions/2026-02-16/session-notes.md#第二部分go-map-全解析初始化遍历删除与-set-模拟)
 
 ### 并发模型
 - [Go协程与Java线程的区别（优劣势、场景、资源差异对比表格）](sessions/2026-02-10/session-notes.md#问题2-go协程与java线程的区别优劣势场景资源差异对比表格)
@@ -73,6 +74,9 @@
 
 ### 2026-02-16
 - **文档**: [session-notes.md](sessions/2026-02-16/session-notes.md)
+
+### 2026-02-16 演示代码
+- [map-demo](code-examples/map-demo/main.go)
 
 ### 2026-02-14
 - **文档**: [session-notes.md](sessions/2026-02-14/session-notes.md)
