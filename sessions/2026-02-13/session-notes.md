@@ -20,6 +20,11 @@
     - **Struct Tag**: `json:"name"` 用于 JSON 映射。
     - **JSON 解析**: 标准库 `encoding/json` 开箱即用。
     - **命名规范**: 允许 `DTO` 等后缀以增强语义。
+6. **切片 (Slice)**:
+    - **引用类型**: 底层指向数组，包含 `ptr`, `len`, `cap`。
+    - **扩容**: `append` 超过 `cap` 时自动扩容（成倍增长）。
+    - **截取**: `[start:end]` 左闭右开，共享底层数组。
+    - **初始化**: 字面量、`make`、`var` (nil)。
 
 ### 今日代码产出
 | 演示项目 | 描述 |
@@ -28,6 +33,7 @@
 | [pointer-demo](../../code-examples/pointer-demo/main.go) | 演示了 `&`/`*` 运算、结构体指针自动解引用、值传递 vs 指针传递性能对比、指针数组与二级指针 |
 | [visibility-demo](../../code-examples/visibility-demo/main.go) | 演示了跨包访问权限控制（Public vs Private）及导入语法 |
 | [global-cache-demo](../../code-examples/global-cache-demo/pkg/formulas/store.go) | 演示了全局缓存模式、Struct Tag 的使用以及真实 JSON 解析 (`encoding/json`) |
+| [slice-ops-demo](../../code-examples/slice-ops-demo/main.go) | 演示了切片定义、make、初始化、截取、len/cap、append/copy 操作 |
 
 ---
 
@@ -178,3 +184,70 @@
 *   **同包唯一性**: 在同一个包 (`package formulas`) 下，**不管分多少个文件**，**绝对不能**有同名的函数、变量、类型或常量。
 *   **原因**: 编译器会把这些文件“合并”成一个大文件来看待。
 *   **示例**: 如果 `store.go` 定义了 `func Init()`，那么 `calc.go` 里就不能再定义 `func Init()` 了。
+
+---
+
+## 第十六部分：Go 切片 (Slice) 进阶操作
+
+### 1. 定义对象切片 (Slice of Structs)
+*   **语法**: `[]Person`。
+*   **含义**: 一个动态数组，里面存的全是 `Person` 结构体（值）。
+*   **对比 JS**: 就像 JS 的 `[{name: "A"}, {name: "B"}]`。
+*   **示例**:
+    ```go
+    var users []Person // 定义一个 nil 切片
+    ```
+
+### 2. 创建切片 (make vs 字面量)
+*   **方式 A: 字面量 (推荐用于初始化已知数据)**
+    ```go
+    users := []Person{
+        {Name: "Alice", Age: 18},
+        {Name: "Bob", Age: 20},
+    }
+    ```
+*   **方式 B: make (推荐用于动态填充)**
+    ```go
+    // make([]Type, len, cap)
+    // len=0: 初始没有元素
+    // cap=10: 预分配10个位置，避免频繁扩容
+    users := make([]Person, 0, 10)
+    ```
+
+### 3. 切片初始化
+*   **nil 切片**: `var s []int` (未分配内存)
+*   **空切片**: `s := []int{}` 或 `make([]int, 0)` (已分配内存，但没元素)
+*   **带值初始化**: `s := []int{1, 2, 3}`
+
+### 4. 切片截取 (Slicing)
+*   **语法**: `slice[start:end]`
+*   **规则**: **左闭右开** `[start, end)`。包含 `start`，不包含 `end`。
+*   **示例**:
+    ```go
+    arr := []int{0, 1, 2, 3, 4}
+    sub := arr[1:3] // 取 index 1, 2 -> [1, 2]
+    ```
+*   **省略写法**:
+    *   `arr[:2]` -> `arr[0:2]` (从头开始)
+    *   `arr[2:]` -> `arr[2:len]` (直到末尾)
+    *   `arr[:]` -> 复制整个切片引用
+
+### 5. len() vs cap()
+*   **len() (Length)**: 切片里**实际有多少个元素**。
+*   **cap() (Capacity)**: 切片**底层数组从 start 开始还有多少空间**。
+*   **关系**: `len <= cap`。当 `append` 导致 `len > cap` 时，Go 会自动分配一个更大的底层数组（扩容），并将数据拷贝过去。
+
+### 6. append() 与 copy()
+*   **append()**: 向切片末尾追加元素。
+    *   **注意**: 必须接收返回值！`s = append(s, val)`。因为扩容后地址会变。
+*   **copy()**: 复制两个切片的内容。
+    *   **坑**: 目标切片 `dest` 必须有足够的 `len`，否则复制不进去。
+    *   **示例**:
+        ```go
+        src := []int{1, 2}
+        dest := make([]int, 2) // len 必须是 2
+        copy(dest, src)
+        ```
+
+### 代码示例
+- [slice-ops-demo](../../code-examples/slice-ops-demo/main.go): 演示了切片定义、make、初始化、截取、len/cap、append/copy 操作。

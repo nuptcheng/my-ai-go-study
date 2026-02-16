@@ -3,9 +3,9 @@
 # Go 学习进度追踪
 
 ## 概览
-- 总问题数：21
-- 总学习天数：2
-- 最后更新：2026-02-12
+- 总问题数：24
+- 总学习天数：5
+- 最后更新：2026-02-16
 
 ## 掌握主题
 - 类型分类与数量（按规范分为 3 基本 + 8 复合）
@@ -91,3 +91,15 @@
   - 记录位置：../sessions/2026-02-12/session-notes.md#第八部分go-切片-slice-详解与扩容机制
 - 问题18-Go 语言编码规范与标准项目结构指南 (Naming & Layout)（2026-02-12）
   - 记录位置：../sessions/2026-02-12/session-notes.md#第九部分go-语言编码规范与标准项目结构
+- 问题19-Go 数组 (Array) 全解析：结构体数组、定长特性与多维数组（2026-02-13）
+  - 记录位置：../sessions/2026-02-13/session-notes.md#第十一部分go-数组-array-全解析
+- 问题20-Go 指针 (Pointer) 详解：符号、结构体访问、传值性能对比与二级指针（2026-02-13）
+  - 记录位置：../sessions/2026-02-13/session-notes.md#第十二部分go-指针-pointer-详解
+- 问题21-Go 可见性与包管理：首字母规则、包名文件名关系与导入机制（2026-02-13）
+  - 记录位置：../sessions/2026-02-13/session-notes.md#第十三部分go-vs-js-模块导入机制对比
+- 问题22-Go 全局缓存与 Struct Tag：JSON 解析与命名规范（2026-02-13）
+  - 记录位置：../sessions/2026-02-13/session-notes.md#第十四部分struct-tag-与命名规范
+- 问题23-Go 切片 (Slice) 进阶操作：定义对象切片、make、截取、len/cap、append/copy（2026-02-13）
+  - 记录位置：../sessions/2026-02-13/session-notes.md#第十六部分go-切片-slice-进阶操作
+- 问题24-Go 的 for 语句与 range 完整用法：多种形态与遍历细节（2026-02-16）
+  - 记录位置：../sessions/2026-02-16/session-notes.md#第一部分go-for-语句与-range-用法

@@ -1,7 +1,7 @@
 <!--
  * @Author: BecomeBamboo
  * @Date: 2026-01-23 14:09:45
- * @LastEditTime: 2026-02-13 11:24:48
+ * @LastEditTime: 2026-02-16 20:47:59
  * @Description: 
 -->
 # Go学习知识库
@@ -34,6 +34,7 @@
 - [Go里面{不能单独一行是吗？（语法规则与分号插入机制）](sessions/2026-02-12/session-notes.md#第三部分go-语法规则-左大括号)
 - [Go语言中的25个关键字或保留字详解与分类记忆](sessions/2026-02-12/session-notes.md#第四部分go-关键字-keywords)
 - [Go常量定义时需要显式指定类型吗？（无类型常量与有类型常量的区别）](sessions/2026-02-12/session-notes.md#第五部分go-常量定义与类型推断机制)
+- [Go 的 for 语句与 range 用法：三种形态与遍历细节](sessions/2026-02-16/session-notes.md#第一部分go-for-语句与-range-用法)
 
 ### 并发模型
 - [Go协程与Java线程的区别（优劣势、场景、资源差异对比表格）](sessions/2026-02-10/session-notes.md#问题2-go协程与java线程的区别优劣势场景资源差异对比表格)
@@ -42,6 +43,7 @@
 - [Go 接口定义、隐式实现与多态使用场景](sessions/2026-02-12/session-notes.md#第六部分go-接口定义与使用场景)
 - [Go 数据类型全解：基本类型与复合类型分类详解](sessions/2026-02-12/session-notes.md#第七部分go-数据类型全解)
 - [Go 切片 (Slice) 详解：底层结构、扩容机制与常见陷阱](sessions/2026-02-12/session-notes.md#第八部分go-切片-slice-详解与扩容机制)
+- [Go 切片 (Slice) 进阶操作：定义对象切片、make、截取、len/cap、append/copy](sessions/2026-02-13/session-notes.md#第十六部分go-切片-slice-进阶操作)
 - [Go 语言编码规范与标准项目结构指南 (Naming & Layout)](sessions/2026-02-12/session-notes.md#第九部分go-语言编码规范与标准项目结构)
 - [Go 匿名函数与闭包 (Closure)：应用场景与循环变量捕获](sessions/2026-02-12/session-notes.md#第十部分go-匿名函数与闭包-closure)
 - [Go 数组 (Array) 全解析](sessions/2026-02-13/session-notes.md#第十一部分go-数组-array-全解析)
@@ -69,14 +71,21 @@
 
 ## 学习记录 (Timeline)
 
+### 2026-02-16
+- **文档**: [session-notes.md](sessions/2026-02-16/session-notes.md)
+
+### 2026-02-14
+- **文档**: [session-notes.md](sessions/2026-02-14/session-notes.md)
+
 ### 2026-02-13
-- **今日重点**: 数组、指针、可见性规则、包管理、Struct Tag 与全局缓存模式。
+- **今日重点**: 数组、指针、可见性规则、包管理、Struct Tag、全局缓存模式、切片进阶操作。
 - **文档**: [session-notes.md](sessions/2026-02-13/session-notes.md)
 - **演示代码**:
-  - [array-demo](code-examples/array-demo)
-  - [pointer-demo](code-examples/pointer-demo)
-  - [visibility-demo](code-examples/visibility-demo)
-  - [global-cache-demo](code-examples/global-cache-demo)
+  - [array-demo](code-examples/array-demo/main.go)
+  - [pointer-demo](code-examples/pointer-demo/main.go)
+  - [visibility-demo](code-examples/visibility-demo/main.go)
+  - [global-cache-demo](code-examples/global-cache-demo/pkg/formulas/store.go)
+  - [slice-ops-demo](code-examples/slice-ops-demo/main.go)
 
 ### 2026-02-12
 - [Go语言的短变量声明是什么意思？是只能在函数内部声明是嘛，函数外如何处理？](sessions/2026-02-12/session-notes.md#第一部分go-短变量声明)
